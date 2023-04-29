@@ -3,7 +3,7 @@
 
 大家有用过Stable Diffusion吗？Stable Diffusion是1个生成图像的模型，嗯……感觉介绍很麻烦所以就不说了！
 
-总之我训了1个lora，可以用来生成量产型电子莉沫酱！
+总之我训练了1个LORA，可以用在Stable Diffusion上，来生成量产型电子莉沫酱图像！
 
 
 ## 训练参数
@@ -16,7 +16,7 @@
     - 模型小1点，不容易过拟合。
 
 - network_alpha: 2
-    - 虽然我看其他LORA喜欢开到network_dim的1半，但是测试下来alpha只要超过3，就会导致泛化性明显下降。
+    - 虽然我看其他LORA喜欢开到network_dim的1半，但我测试下来alpha只要超过3，就会导致泛化性明显下降。
 
 - batch_size: 2
     - 我的1080Ti最大只能开2……
@@ -54,9 +54,11 @@ Steps: 50, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 1, Size: 448x704, Model
 ```
 
 
+我也测试了1下模型的泛化性，换上女仆装！
+
 ![2.jpg](2.jpg)
 
-我也测试了1下模型的泛化性，换上女仆装，看起来也不错！
+看起来也不错！
 
 参数: 
 
