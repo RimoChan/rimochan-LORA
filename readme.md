@@ -92,7 +92,7 @@ Steps: 40, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 1, Size: 448x704, Model
 
 我们观察到莉沫酱LORA会使模型倾向于画出简单的背景，这是因为训练集的关系。可以考虑使用[lora-block-weight](https://github.com/hako-mikan/sd-webui-lora-block-weight)插件，降低几个特定层的权重来缓解这个问题。
 
-比如将权重设为`<lora:rimochan:1:1,1,1,1,1,0.8,0.2,1,1,1,1,1,1,1,1,1,1>`，输出的图片是这样: 
+比如将第5和第6层的权重降低，即`<lora:rimochan:1:1,1,1,1,1,0.8,0.2,1,1,1,1,1,1,1,1,1,1>`，输出的图片是这样: 
 
 ![g2.jpg](g2.jpg)
 
