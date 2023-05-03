@@ -38,6 +38,8 @@
 
 ## 效果
 
+### 普通样例
+
 ![1.jpg](1.jpg)
 
 看起来不错！
@@ -53,6 +55,7 @@ Negative prompt: (worst quality, low quality:1.4), (realistic, lip, nose, tooth,
 Steps: 50, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 1, Size: 448x704, Model hash: 7d7b896083, Model: Counterfeit-V2.2, Script: X/Y/Z plot, X Type: Prompt S/R, X Values: "sitting, standing, kneeling", Y Type: Prompt S/R, Y Values: "outdoors, indoors"
 ```
 
+### 换衣服样例
 
 我也测试了1下模型的泛化性，换上女仆装！
 
@@ -71,6 +74,27 @@ Negative prompt: (worst quality, low quality:1.4), (realistic, lip, nose, tooth,
 Steps: 50, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 1, Size: 448x704, Model hash: 7d7b896083, Model: Counterfeit-V2.2, Script: X/Y/Z plot, X Type: Prompt S/R, X Values: "sitting, standing, kneeling", Y Type: Prompt S/R, Y Values: "outdoors, indoors"
 ```
 
+### 权重调整样例
+
+随着LORA权重增加，输出图片的变化:
+
+![g1.jpg](g1.jpg)
+
+参数:
+
+```
+1girl, solo,
+standing, blush, outdoors, school,
+<lora:rimochan:0.1>
+Negative prompt: (worst quality, low quality:1.4), (realistic, lip, nose, tooth, rouge, lipstick, eyeshadow:1.0), (abs, muscular, rib:1.0), (blurry, greyscale, monochrome:1.0), text, title, logo, signature
+Steps: 40, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 1, Size: 448x704, Model hash: 7d7b896083, Model: Counterfeit-V2.2, Script: X/Y/Z plot, X Type: Prompt S/R, X Values: "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0"
+```
+
+我们观察到莉沫酱LORA会使模型倾向于画出简单的背景，这是因为训练集的关系。可以考虑使用[lora-block-weight](https://github.com/hako-mikan/sd-webui-lora-block-weight)插件，降低几个特定层的权重来缓解这个问题。
+
+比如将权重设为`<lora:rimochan:1:1,1,1,1,1,0.8,0.2,1,1,1,1,1,1,1,1,1,1>`，输出的图片是这样: 
+
+![g2.jpg](g2.jpg)
 
 ## 结束
 
